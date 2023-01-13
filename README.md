@@ -4,10 +4,11 @@ This package allows users to provide a list of URLs for webpages of interest and
 
 ## Features
 The pymine package includes the following four functions:
-1. 
-2. 
-3.
-4. `count_words()`: Counts the occurence of a specific list of words on a series of webpages and produces a Pandas dataframe with the results. The user will provide a list of urls to scrape and a list of target words they are interested in. 
+
+* `create_id()`: Takes a list of webpage urls formatted as strings as an input and returns a list of unique string identifiers for each webpage based on their url.  The identifier is composed of the main webpage name followed by a number.
+* 
+*
+* `count_words()`: Counts the occurence of a specific list of words on a series of webpages and produces a Pandas dataframe with the results. The user will provide a list of urls to scrape and a list of target words they are interested in. 
 ## Installation
 
 ```bash
@@ -20,7 +21,7 @@ $ pip install pymine
 
 ## Contributing
 
-Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+Interested in contributing? Check out the [contributing guidelines](CONTRIBUTING.md) and the [list of contributors](CONTRIBUTORS.md) who have contributed to the development of this project thus far. Please note that this project is released with a [Code of Conduct](CONDUCT.md). By contributing to this project, you agree to abide by its terms.
 
 ## License
 
