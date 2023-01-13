@@ -14,7 +14,7 @@ The pymine package includes the following four functions:
 
 * `create_id()`: Takes a list of webpage urls formatted as strings as an input and returns a list of unique string identifiers for each webpage based on their url.  The identifier is composed of the main webpage name followed by a number.
 * 
-*
+* `bow()`: Takes a string text as an input and returns the list of unique words it contains.
 * `count_words()`: Counts the occurence of a specific list of words on a series of webpages and produces a Pandas dataframe with the results. The user will provide a list of urls to scrape and a list of target words they are interested in. 
 
 ## Installation
