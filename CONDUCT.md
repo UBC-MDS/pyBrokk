@@ -2,7 +2,7 @@
 
 ## Our Pledge
 
-DSCI 522 Group 14 is composed of members from diverse backgrounds with a varied set of skills, personalities, and experiences.  
+DSCI 524 Group 14 is composed of members from diverse backgrounds with a varied set of skills, personalities, and experiences.  
 
 In the interest of fostering an open and welcoming environment for all of us to work together, demonstrate our abilities, and foster continued growth, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
