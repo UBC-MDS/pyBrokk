@@ -1,23 +1,30 @@
-def bow(text):
+def bow(urls, text):
     """
     Converts a raw text to a list of target words as strings
     
     Parameters
     ----------
+    urls : list
+        list of url id's as string
+    
     text : str
+        list of extracted text from each web page. 
            
     Returns
     ----------
-    words : list
-        list of all intended words 
+    bag_of_words : dataframe
+        dataframe with the webpage id's (string) and bag of words of the webpage's text (dictionary)  
         
     Examples
     ----------
-    >>> text = "ChatGPT was launched as a prototype on November 30, 2022, and quickly garnered \n
-                attention for its detailed responses and articulate answers across many domains \n
-                of knowledge." 
-    >>> bow(text)
-   [a, across, and, answers, articles, as, attention, domains, its, chatgpt, detailed, for, garnered,
-   lnowledge,launched, many, november, on, prototype, quickly, responses, was, 2022, 30  ]
+    >>> urls = ['https://www.cnn.com/world', 'https://www.foxnews.com/world', 'https://www.cbc.ca/news/world']
+    >>> text = ["This is CNN!", "This is Foxnews!", "According to news, This is cbc news!"] 
+    >>> bow(urls, text)
+    URL          BOW 
+    ---          ---     
+    cnn1        {"this": 1, "is" : 1, "cnn" : 1 }
+    foxnews1    {"this": 1, "is" : 1, "foxnews" : 1 }
+    cbc1        {"according": 1, "to": 1, "news" : 2, "this": 1, "is":1, "cbc" : 1}
+ 
     """
     # count_words code goes here...
