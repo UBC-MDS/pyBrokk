@@ -1,30 +1,41 @@
-def bow(urls, text):
+def bow(text):
     """
     Converts a raw text to a list of target words as strings
     
     Parameters
     ----------
-    urls : list
-        list of url id's as string
-    
     text : str
-        list of extracted text from each web page. 
            
     Returns
     ----------
-    bag_of_words : dataframe
-        dataframe with the webpage id's (string) and bag of words of the webpage's text (dictionary)  
+    words : list
+        list of all intended words 
         
     Examples
     ----------
-    >>> urls = ['https://www.cnn.com/world', 'https://www.foxnews.com/world', 'https://www.cbc.ca/news/world']
-    >>> text = ["This is CNN!", "This is Foxnews!", "According to news, This is cbc news!"] 
-    >>> bow(urls, text)
-    URL          BOW 
-    ---          ---     
-    cnn1        {"this": 1, "is" : 1, "cnn" : 1 }
-    foxnews1    {"this": 1, "is" : 1, "foxnews" : 1 }
-    cbc1        {"according": 1, "to": 1, "news" : 2, "this": 1, "is":1, "cbc" : 1}
- 
+    >>> text = \"""ChatGPT (Generative Pre-trained Transformer)[1] is a chatbot launched by OpenAI in November 2022. 
+                  ChatGPT was fine-tuned on top of GPT-3.5 using supervised learning as well as reinforcement learning.[5]\""" 
+    >>> bow(text)
+            [{'2022': 1,
+            'chatbot': 1,
+            'chatgpt': 2,
+            'fine': 1,
+            'generative': 1,
+            'gpt': 1,
+            'launched': 1,
+            'learning': 2,
+            'november': 1,
+            'openai': 1,
+            'pre': 1,
+            'reinforcement': 1,
+            'supervised': 1,
+            'trained': 1,
+            'transformer': 1,
+            'tuned': 1,
+            'using': 1}]
     """
-    # count_words code goes here...
+    words = CountVectorizer(stop_words='english')
+    words_matrix = words.fit_transform([text])
+    words_array = words_matrix.toarray()
+    df = pd.DataFrame(data=words_array, columns = words.get_feature_names()).to_dict('records')
+    return df
