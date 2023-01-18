@@ -33,6 +33,7 @@ def duster(urls):
         soup = BeautifulSoup(page.content, "html.parser")
         output[url] = soup.text
 
-    df = pd.DataFrame.from_dict(output, orient='index')
-
+    df = pd.DataFrame.from_dict(output, orient='index', columns=["raw_text"]).reset_index().rename(columns={"index":"url"})
+    return df
+    
 
