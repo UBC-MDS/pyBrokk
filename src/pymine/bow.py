@@ -1,41 +1,45 @@
-def bow(text):
+def bow(df):
     """
-    Converts a raw text to a list of target words as strings
+    Converts the last column of the data frame to a bag of words and return it 
+    alonge with other columns of the data frame.
     
     Parameters
     ----------
-    text : str
+    df : data frame
+        a data frame with the last column of raw text
+
            
     Returns
     ----------
-    words : list
-        list of all intended words 
+    df_bow : data frame
+        a data frame which consists of the n-1 first columns of the input data frame as its n-1 first columns,
+        plus a bag of words out the input data frame in its following numerous columns. 
+
         
     Examples
     ----------
-    >>> text = \"""ChatGPT (Generative Pre-trained Transformer)[1] is a chatbot launched by OpenAI in November 2022. 
-                  ChatGPT was fine-tuned on top of GPT-3.5 using supervised learning as well as reinforcement learning.[5]\""" 
-    >>> bow(text)
-            [{'2022': 1,
-            'chatbot': 1,
-            'chatgpt': 2,
-            'fine': 1,
-            'generative': 1,
-            'gpt': 1,
-            'launched': 1,
-            'learning': 2,
-            'november': 1,
-            'openai': 1,
-            'pre': 1,
-            'reinforcement': 1,
-            'supervised': 1,
-            'trained': 1,
-            'transformer': 1,
-            'tuned': 1,
-            'using': 1}]
+    >>> df = pd.DataFrame({
+  "url": ["https://www.cnn.com/world",
+          "https://www.foxnews.com/world",
+          "https://www.cbc.ca/news/world"],
+  "url_id": ["cnn1","foxnews1","cbc1"],
+  "text": ["Instagram has a faster chance of reaching me than CNN, and if I really want to know what's going on, I refresh my Twitter feed.",
+           "I would appear on Fox News more easily than I would NPR.",
+           "CBC has a very important mandate to bind Canada together in both official languages, tell local stories, and make sure we have a sense of our strength, our culture, our stories."]
+})
+
+    >>> df_bow(df)
+            ===============================  ==========  ============================== ========  ====== ========     ====== ========= ======
+                        url                    url_id             text                   appear	   bind	  canada  ...  tell	  twitter 	want
+            ===============================  ==========  ============================== ========  ====== ========     ====== ========= ======
+             https://www.cnn.com/world         cnn1       Instagram has a faster ...       0        0       0     ...    0        1      1
+             https://www.foxnews.com/world     foxnew1    I would appear on Fox ...        1        0       0     ...    0        0      0
+             https://www.cbc.ca/news/world     cbc1       CBC has a very important ...     0        1       1     ...    1        0      0
+                
     """
     words = CountVectorizer(stop_words='english')
-    words_matrix = words.fit_transform([text])
+    words_matrix = words.fit_transform(df.iloc[:,-1])
     words_array = words_matrix.toarray()
-    df = pd.DataFrame(data=words_array, columns = words.get_feature_names()).to_dict('records')
-    return df
+    df_temp = pd.DataFrame(data=words_array, columns = words.get_feature_names())
+    df_bow = pd.concat([df ,df_temp], axis=1)
+    return df_bow
