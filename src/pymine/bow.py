@@ -44,7 +44,7 @@ def bow(df):
                1        0       0    ...   0       0      0
                0        1       1    ...   1       0      0
     """
-    words = CountVectorizer(stop_words='english')
+    words = CountVectorizer()
     words_matrix = words.fit_transform(df.iloc[:,-1])
     words_array = words_matrix.toarray()
     df_temp = pd.DataFrame(data=words_array, columns = words.get_feature_names())
