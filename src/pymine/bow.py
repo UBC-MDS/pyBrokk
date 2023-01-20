@@ -38,11 +38,11 @@ def bow(df):
                 
                 
             ======== ====== ========     ====== ========= ======
-             appear	   bind	  canada ...  tell	 twitter   want
+             appear   bind   canada  ...  tell	 twitter   want
             ======== ====== ========     ====== ========= ======
-               0        0       0     ...    0       1      1
-               1        0       0     ...    0       0      0
-               0        1       1     ...    1       0      0
+               0        0       0    ...   0       1      1
+               1        0       0    ...   0       0      0
+               0        1       1    ...   1       0      0
     """
     words = CountVectorizer(stop_words='english')
     words_matrix = words.fit_transform(df.iloc[:,-1])
