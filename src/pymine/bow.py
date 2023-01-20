@@ -37,12 +37,12 @@ def bow(df):
              https://www.cbc.ca/news/world     cbc1       CBC has a very important ...     
                 
                 
-            ========  ====== ========     ====== ========= ======
-             appear	   bind	  canada  ...  tell	  twitter 	want
-            ========  ====== ========     ====== ========= ======
-               0        0       0     ...    0        1      1
-               1        0       0     ...    0        0      0
-               0        1       1     ...    1        0      0
+            ======== ====== ========     ====== ========= ======
+             appear	   bind	  canada ...  tell	 twitter   want
+            ======== ====== ========     ====== ========= ======
+               0        0       0     ...    0       1      1
+               1        0       0     ...    0       0      0
+               0        1       1     ...    1       0      0
     """
     words = CountVectorizer(stop_words='english')
     words_matrix = words.fit_transform(df.iloc[:,-1])
