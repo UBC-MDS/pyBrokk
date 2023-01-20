@@ -29,13 +29,20 @@ def bow(df):
 })
 
     >>> df_bow(df)
-            ===============================  ==========  ============================== ========  ====== ========     ====== ========= ======
-                        url                    url_id             text                   appear	   bind	  canada  ...  tell	  twitter 	want
-            ===============================  ==========  ============================== ========  ====== ========     ====== ========= ======
-             https://www.cnn.com/world         cnn1       Instagram has a faster ...       0        0       0     ...    0        1      1
-             https://www.foxnews.com/world     foxnew1    I would appear on Fox ...        1        0       0     ...    0        0      0
-             https://www.cbc.ca/news/world     cbc1       CBC has a very important ...     0        1       1     ...    1        0      0
+            ===============================  ==========  ============================== 
+                        url                    url_id             text                   
+            ===============================  ==========  ============================== 
+             https://www.cnn.com/world         cnn1       Instagram has a faster ...       
+             https://www.foxnews.com/world     foxnew1    I would appear on Fox ...        
+             https://www.cbc.ca/news/world     cbc1       CBC has a very important ...     
                 
+                
+            ========  ====== ========     ====== ========= ======
+             appear	   bind	  canada  ...  tell	  twitter 	want
+            ========  ====== ========     ====== ========= ======
+               0        0       0     ...    0        1      1
+               1        0       0     ...    0        0      0
+               0        1       1     ...    1        0      0
     """
     words = CountVectorizer(stop_words='english')
     words_matrix = words.fit_transform(df.iloc[:,-1])
