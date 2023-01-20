@@ -1,3 +1,6 @@
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+
 def bow(df):
     """
     Converts the last column of the data frame to a bag of words and return it 
