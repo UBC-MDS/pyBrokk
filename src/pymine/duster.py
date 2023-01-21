@@ -26,6 +26,7 @@ def duster(urls):
     import requests
     from bs4 import BeautifulSoup
     import pandas as pd
+    from pymine.create_id import create_id
 
     output = {}
     for url in urls:
@@ -34,8 +35,8 @@ def duster(urls):
         output[url] = soup.text
 
     df = pd.DataFrame.from_dict(output, orient='index', columns=["raw_text"]).reset_index().rename(columns={"index":"url"})
-    df['raw_text'].str.replace("\n", "")
-    #df['id'] = create_id(df['url'].tolist())
+    df['raw_text'] = df['raw_text'].str.replace("\n", "")
+    df['id'] = create_id(df['url'].tolist())
     return df
     
 
