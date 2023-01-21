@@ -2,13 +2,12 @@ from pymine.bow import bow
 import pandas as pd
 
 def test_bow():
-    """Tests for bow functions.
+    """Tests for bow function.
     this function tests four issues:
     1. Checks whether the last column of input data frame is string.
     2. As the bow function should not add any rows, checks whether the number of rows in both data frames are the same.
-    3. As the bow function only applys on the last column of the input data frame, checks whether the first m-1 columns in both data frames are the same.
-    4. Compares 
-     
+    3. As the bow function only applies on the last column of the input data frame, checks whether the first m-1 columns in both data frames are the same.
+    4. Compares an example outout with a expected data frame to make sure the function simply returns the right output as expected.    
     """
     input = pd.DataFrame({
             "url_address": ["first url","second url","third url"],
