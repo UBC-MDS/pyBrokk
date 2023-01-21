@@ -15,7 +15,18 @@ def create_id(urls):
     Examples
     ----------
     >>> from pymine import create_id
-    >>> create_id(['https://www.reddit.com/r/nba/', 'https://vancouver.craigslist.org/search/apa', 'https://www.kijiji.ca/b-real-estate/richmond-bc/c34l1700288'])
-    ['reddit1', 'craigslist1', 'kijiji1']
+    >>> create_id(['https://www.reddit.com/r/nba/', 'https://www.reddit.com/r/nfl/', 'https://vancouver.craigslist.org/search/apa', 'https://www.kijiji.ca/b-real-estate/richmond-bc/c34l1700288'])
+    ['reddit1', 'reddit2', 'craigslist1', 'kijiji1']
     """
-    # create_id code goes here...
+    ids = []
+    ids_dict = {}
+    for url in urls:
+        website_split = url.split(".")
+        website_name = website_split[1]
+        if website_name in ids_dict:
+            ids_dict[website_name]["count"] += 1
+        else:
+            ids_dict[website_name] = {"count": 1}
+        ids.append(website_name + str(ids_dict[website_name]["count"]))
+        
+    return ids
