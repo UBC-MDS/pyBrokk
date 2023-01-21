@@ -10,7 +10,7 @@ def test_text_from_url():
 
     """
 
-    urls = ['https://realpython.github.io/fake-jobs/jobs/scientist-research-maths-22.html', 'https://realpython.github.io/fake-jobs/jobs/futures-trader-41.html', 'https://realpython.github.io/fake-jobs/jobs/software-developer-python-40.html']
+    urls = ['https://raw.githubusercontent.com/UBC-MDS/pymine/main/tests/Fake%20Python%201.html', 'https://raw.githubusercontent.com/UBC-MDS/pymine/main/tests/Fake%20Python%202.html', 'https://raw.githubusercontent.com/UBC-MDS/pymine/main/tests/Fake%20Python%203.html']
 
     test_result = {'https://realpython.github.io/fake-jobs/jobs/scientist-research-maths-22.html': '\n\n\n\n\nFake Python\n\n\n\n\n\n\n        Fake Python\n      \n\n        Fake Jobs for Your Web Scraping Journey\n      \n\n\n\n\nScientist, research (maths)\nManning, Welch and Herring\n\nBank ten guess. Course book music amount. Fire town worker. Image central challenge term memory. By care lose politics. Role mind statement.\nLocation: Laurenland, AE\nPosted: 2021-04-08\n\n\n\n\n\n\n\n',
     'https://realpython.github.io/fake-jobs/jobs/futures-trader-41.html': '\n\n\n\n\nFake Python\n\n\n\n\n\n\n        Fake Python\n      \n\n        Fake Jobs for Your Web Scraping Journey\n      \n\n\n\n\nFutures trader\nSchneider-Brady\n\nPart instead city type short rather. Once born control white. Rather beyond share energy size. Meeting movie avoid American address simply. Thousand impact six loss. Finish star be.\nLocation: North Jason, AE\nPosted: 2021-04-08\n\n\n\n\n\n\n\n',
