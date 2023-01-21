@@ -1,4 +1,4 @@
-from pymine.pymine import create_id
+from pymine.create_id import create_id
 
 def test_create_id():
     """
@@ -18,7 +18,7 @@ def test_create_id():
     assert type(urls) is list and all(isinstance(item, str) for item in urls) == True, "Input is not a list of strings"
     
     "Confirms the output is a list and all items in the list are strings"
-    assert type(actual) is list and all(isinstance(item, str) for item in ids) == True, "Output is not a list of strings"
+    assert type(actual) is list and all(isinstance(item, str) for item in actual) == True, "Output is not a list of strings"
     
     "Confirms the output list of identifiers is the same length as the input list of urls"
     assert len(actual) == len(urls), "Input and Output sizes do not match"
