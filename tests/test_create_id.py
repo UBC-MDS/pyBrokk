@@ -1,4 +1,4 @@
-from pymine.pymine import create_id
+from pymine.create_id import create_id
 
 def test_create_id():
     """
