@@ -1,3 +1,5 @@
+from pymine.pymine import create_id
+
 def test_create_id():
     """
     Test input and output for create_id() function
