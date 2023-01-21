@@ -1,7 +1,6 @@
-import requests
-from bs4 import BeautifulSoup
 import pandas as pd
 from pymine.create_id import create_id
+from pymine.text_from_url import text_from_url
 
 def duster(urls):
     """
@@ -27,12 +26,9 @@ def duster(urls):
     foxnews1  https://www.foxnews.com/world  World | Fox NewsFox News   U.S.PoliticsMediaOp...
     cbc1      https://www.cbc.ca/news/world  World - CBC NewsContentSkip to Main ContentAcc...         
     """
+    #scrape text from the web
+    output = text_from_url(urls)
 
-    output = {}
-    for url in urls:
-        page = requests.get(url)
-        soup = BeautifulSoup(page.content, "html.parser")
-        output[url] = soup.text
     #create Dataframe from dictionary output of text_from_url()
     df = pd.DataFrame.from_dict(output, orient='index', columns=["raw_text"]).reset_index().rename(columns={"index":"url"})
     
