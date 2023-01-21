@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 def bow(df):
     """
     Converts the last column of the data frame to a bag of words and return it 
-    alonge with other columns of the data frame.
+    along with other columns of the data frame.
     
     Parameters
     ----------
@@ -16,7 +16,7 @@ def bow(df):
     ----------
     df_bow : data frame
         a data frame which consists of the n-1 first columns of the input data frame as its n-1 first columns,
-        plus a bag of words out the input data frame in its following numerous columns. 
+        plus a bag of words of the input data frame in its following numerous columns. 
 
         
     Examples
@@ -43,9 +43,9 @@ def bow(df):
             ======== ====== ========     ====== ========= ======
              appear   bind   canada  ...  tell	 twitter   want
             ======== ====== ========     ====== ========= ======
-               0        0       0    ...   0       1      1
-               1        0       0    ...   0       0      0
-               0        1       1    ...   1       0      0
+               0        0       0    ...   0       1        1
+               1        0       0    ...   0       0        0
+               0        1       1    ...   1       0        0
     """
     words = CountVectorizer()
     words_matrix = words.fit_transform(df.iloc[:,-1])
