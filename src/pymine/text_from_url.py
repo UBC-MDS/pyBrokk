@@ -1,4 +1,7 @@
-def text_from_url(urls, identifiers=False):
+import requests
+from bs4 import BeautifulSoup
+
+def text_from_url(urls, identifiers=True, ):
     """
     This function takes a list of URLs and returns the raw text as scraped from the URL using Beautiful Soup
 
@@ -6,13 +9,13 @@ def text_from_url(urls, identifiers=False):
     ----------
         urls: list
             List of URLs to scrape as strings
-        identifiers: optional argument (default=False)
+        identifiers: optional argument (default=True)
             Uses the create_id function of the pymine package to create an identifier tag for the urls
     
     Returns
     -------
-    texts: dataframe
-        Dataframe containing the url and raw text output as columns, if hte identifiers option is set to true it will also add an id column containing the URL identifiers
+    texts: dictionary
+        Dictionary containing the url and raw text output as columns, if the identifiers option is set to true it will also add an id column containing the URL identifiers
 
     Examples
     --------
@@ -38,4 +41,15 @@ def text_from_url(urls, identifiers=False):
     
 
     """
-    # text_from_url code goes here...
+    parse_res = {}
+
+    for url in urls:
+        page = requests.get(url)
+        soup = BeautifulSoup(page.content, "html.parser")
+        parse_res.update({url:soup})
+    return parse_res
+
+        
+
+        
+        
