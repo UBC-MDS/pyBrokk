@@ -1,4 +1,7 @@
-def text_from_url(urls, identifiers=False):
+import requests
+from bs4 import BeautifulSoup
+
+def text_from_url(urls):
     """
     This function takes a list of URLs and returns the raw text as scraped from the URL using Beautiful Soup
 
@@ -6,36 +9,100 @@ def text_from_url(urls, identifiers=False):
     ----------
         urls: list
             List of URLs to scrape as strings
-        identifiers: optional argument (default=False)
-            Uses the create_id function of the pymine package to create an identifier tag for the urls
     
     Returns
     -------
-    texts: dataframe
-        Dataframe containing the url and raw text output as columns, if hte identifiers option is set to true it will also add an id column containing the URL identifiers
+    texts: dictionary
+        Dictionary containing the url as keys and raw text output as values
 
     Examples
     --------
+text_from_url(["https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html", "https://realpython.github.io/fake-jobs/jobs/energy-engineer-1.html"])
 
-    >>> from pymine import text_from_url
-    >>> url_list = ['https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html', 
-    'https://realpython.github.io/fake-jobs/jobs/historic-buildings-inspector-conservation-officer-25.html', 
-    'https://realpython.github.io/fake-jobs/jobs/back-end-web-developer-python-django-60.html']
+   {'https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html': <!DOCTYPE html>
+ 
+ <html>
+ <head>
+ <meta charset="utf-8"/>
+ <meta content="width=device-width, initial-scale=1" name="viewport"/>
+ <title>Fake Python</title>
+ <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" rel="stylesheet"/>
+ </head>
+ <body>
+ <section class="section">
+ <div class="container mb-5">
+ <h1 class="title is-1">
+         Fake Python
+       </h1>
+ <p class="subtitle is-3">
+         Fake Jobs for Your Web Scraping Journey
+       </p>
+ </div>
+ <div class="container">
+ <div class="columns is-multiline" id="ResultsContainer">
+ <div class="box">
+ <h1 class="title is-2">Senior Python Developer</h1>
+ <h2 class="subtitle is-4 company">Payne, Roberts and Davis</h2>
+ <div class="content">
+ <p>Professional asset web application environmentally friendly detail-oriented asset. Coordinate educational dashboard agile employ growth opportunity. Company programs CSS explore role. Html educational grit web application. Oversea SCRUM talented support. Web Application fast-growing communities inclusive programs job CSS. Css discussions growth opportunity explore open-minded oversee. Css Python environmentally friendly collaborate inclusive role. Django no experience oversee dashboard environmentally friendly willing to learn programs. Programs open-minded programs asset.</p>
+ <p id="location"><strong>Location:</strong> Stewartbury, AA</p>
+ <p id="date"><strong>Posted:</strong> 2021-04-08</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ </body>
+ </html>,
+ 'https://realpython.github.io/fake-jobs/jobs/energy-engineer-1.html': <!DOCTYPE html>
+ 
+ <html>
+ <head>
+ <meta charset="utf-8"/>
+ <meta content="width=device-width, initial-scale=1" name="viewport"/>
+ <title>Fake Python</title>
+ <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" rel="stylesheet"/>
+ </head>
+ <body>
+ <section class="section">
+ <div class="container mb-5">
+ <h1 class="title is-1">
+         Fake Python
+       </h1>
+ <p class="subtitle is-3">
+         Fake Jobs for Your Web Scraping Journey
+       </p>
+ </div>
+ <div class="container">
+ <div class="columns is-multiline" id="ResultsContainer">
+ <div class="box">
+ <h1 class="title is-2">Energy engineer</h1>
+ <h2 class="subtitle is-4 company">Vasquez-Davidson</h2>
+ <div class="content">
+ <p>Party prevent live. Quickly candidate change although. Together type music hospital. Every speech support time operation wear often.</p>
+ <p id="location"><strong>Location:</strong> Christopherville, AA</p>
+ <p id="date"><strong>Posted:</strong> 2021-04-08</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ </body>
+ </html>}
 
-    >>> text_from_url(url_list)
-
-                            url                                                                                  | text
-    0   https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html                                 Fake Python Fake Jobs for Your Web Scraping Journey Senior Python Developer Payne, Roberts and Davis Professional asset web application environmentally friendly detail-oriented asset. Coordinate educational dashboard agile employ growth opportunity. Company programs CSS explore role. Html educational grit web application. Oversea SCRUM talented support. Web Application fast-growing communities inclusive programs job CSS. Css discussions growth opportunity explore open-minded oversee. Css Python environmentally friendly collaborate inclusive role. Django no experience oversee dashboard environmentally friendly willing to learn programs. Programs open-minded programs asset. Location: Stewartbury,AAPosted: 2021-04-08
-    1   https://realpython.github.io/fake-jobs/jobs/historic-buildings-inspector-conservation-officer-25.html      Fake Python Fake Jobs for Your Web Scraping Journey Historic buildings inspector/conservation officer Smith LLC Heavy church nature. Civil single city quite. Foreign agency when personal huge difficult player forget. Goal clear inside guy north. North add us accept hope soon. Location: North Brandonville, AP Posted: 2021-04-08
-    2   https://realpython.github.io/fake-jobs/jobs/back-end-web-developer-python-django-60.html                   Fake Python Fake Jobs for Your Web Scraping Journey Back-End Web Developer (Python, Django) Stewart-Alexander Explore professional teamwork software developer dashboard distributed. Css asset distributed curious inclusive CSS. Professional motivated remote. Oversea web application Flask HTML CSS web application Java. Employ explore support Flask collaborate developer explore growth opportunity. Location: South Kimberly, AA Posted: 2021-04-08
     
-    >>> >>> text_from_url(url_list, identifiers=True)
-
-                            url                                                                                  | id               | text
-    0   https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html                                 realpython1        Fake Python Fake Jobs for Your Web Scraping Journey Senior Python Developer Payne, Roberts and Davis Professional asset web application environmentally friendly detail-oriented asset. Coordinate educational dashboard agile employ growth opportunity. Company programs CSS explore role. Html educational grit web application. Oversea SCRUM talented support. Web Application fast-growing communities inclusive programs job CSS. Css discussions growth opportunity explore open-minded oversee. Css Python environmentally friendly collaborate inclusive role. Django no experience oversee dashboard environmentally friendly willing to learn programs. Programs open-minded programs asset. Location: Stewartbury,AAPosted: 2021-04-08
-    1   https://realpython.github.io/fake-jobs/jobs/historic-buildings-inspector-conservation-officer-25.html      realpython2        Fake Python Fake Jobs for Your Web Scraping Journey Historic buildings inspector/conservation officer Smith LLC Heavy church nature. Civil single city quite. Foreign agency when personal huge difficult player forget. Goal clear inside guy north. North add us accept hope soon. Location: North Brandonville, AP Posted: 2021-04-08
-    2   https://realpython.github.io/fake-jobs/jobs/back-end-web-developer-python-django-60.html                   realpython3        Fake Python Fake Jobs for Your Web Scraping Journey Back-End Web Developer (Python, Django) Stewart-Alexander Explore professional teamwork software developer dashboard distributed. Css asset distributed curious inclusive CSS. Professional motivated remote. Oversea web application Flask HTML CSS web application Java. Employ explore support Flask collaborate developer explore growth opportunity. Location: South Kimberly, AA Posted: 2021-04-08
     
 
     """
-    # text_from_url code goes here...
+    parse_res = {}
+
+    for url in urls:
+        page = requests.get(url)
+        soup = BeautifulSoup(page.content, "html.parser")
+        parse_res.update({url:soup})
+    return parse_res
+
+        
+
+        
+        
