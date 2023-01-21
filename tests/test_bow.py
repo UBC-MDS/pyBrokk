@@ -1,3 +1,6 @@
+from pymine.bow import bow
+import pandas as pd
+
 def test_bow():
     """Tests for bow functions.
     this function tests four issues:
