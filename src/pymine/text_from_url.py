@@ -99,7 +99,7 @@ text_from_url(["https://realpython.github.io/fake-jobs/jobs/senior-python-develo
     for url in urls:
         page = requests.get(url)
         soup = BeautifulSoup(page.content, "html.parser")
-        parse_res.update({url:soup})
+        parse_res.update({url:soup.text})
     return parse_res
 
         
