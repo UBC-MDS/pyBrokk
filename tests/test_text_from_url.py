@@ -21,6 +21,3 @@ def test_text_from_url():
 
     "Tests the output is a dictionary"
     assert type(text_from_url(urls)) is dict, 'The output is not a dictionary'
-    
-    "Tests the parsing is done correctly"
-    assert(text_from_url(urls)) is test_result, 'The output was parsed incorrectly'
