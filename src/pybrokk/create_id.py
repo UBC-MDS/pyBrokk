@@ -14,7 +14,7 @@ def create_id(urls):
         
     Examples
     ----------
-    >>> from pymine.create_id import create_id
+    >>> from pybrokk.create_id import create_id
     >>> create_id(['https://www.reddit.com/r/nba/', 'https://www.reddit.com/r/nfl/', 'https://vancouver.craigslist.org/search/apa', 'https://www.kijiji.ca/b-real-estate/richmond-bc/c34l1700288'])
     ['reddit1', 'reddit2', 'craigslist1', 'kijiji1']
     """

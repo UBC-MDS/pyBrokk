@@ -6,7 +6,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u"pymine"
+project = u"pyBrokk"
 copyright = u"2023, Elena Genacheva, Mehdi Naji, Mike Guron, Daniel Merigo"
 author = u"Elena Genacheva, Mehdi Naji, Mike Guron, Daniel Merigo"
 

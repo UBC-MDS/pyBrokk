@@ -1,8 +1,8 @@
-# pymine
+# pyBrokk
 
 This package allows users to provide a list of URLs for webpages of interest and creates a dataframe with Bag of Words representation that can then later be fed into a machine learning model of their choice. Users also have the option to produce a dataframe with just the raw text of their target webpages to apply the text representation of their choice instead.
 
-## Why `pymine`
+## Why `pyBrokk`
 
 There are some libraries and packages that can facilitate this job, from scraping text from a URL to returning it to a bag of words (BOW). However, to the extent of our knowledge, there is no sufficiently handy and straightforward package for this purpose. This package is a tailored combination of `BeatifulSoup` and `CountVectorizer`. [`BeautifulSoup`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) widely used to pull different sources of data from HTML and XML pages, and [`CountVectorizer`](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) is a well-known package to convert a collection of texts to a matrix of token counts.
 
@@ -12,7 +12,7 @@ Some websites do not let users collect their data with web scraping tools. Make 
 
 ## Features
 
-The pymine package includes the following four functions:
+The pyBrokk package includes the following four functions:
 
 -   `create_id()`: Takes a list of webpage urls formatted as strings as an input and returns a list of unique string identifiers for each webpage based on their url. The identifier is composed of the main webpage name followed by a number.
 -   `text_from_url()` : Takes a list of urls and using Beautiful Soup extracts the raw text from each and creates a dictionary. The keys contain the original URL and the values contain the raw text output as parsed by Beautiful Soup.
@@ -22,7 +22,7 @@ The pymine package includes the following four functions:
 ## Installation
 
 ``` bash
-$ pip install pymine
+$ pip install pyBrokk
 ```
 
 ## Usage
@@ -35,8 +35,8 @@ Interested in contributing? Check out the [contributing guidelines](CONTRIBUTING
 
 ## License
 
-`pymine` was created by Elena Ganacheva, Mehdi Naji, Mike Guron, Daniel Merigo. It is licensed under the terms of the MIT license.
+`pyBrokk` was created by Elena Ganacheva, Mehdi Naji, Mike Guron, Daniel Merigo. It is licensed under the terms of the MIT license.
 
 ## Credits
 
-`pymine` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter). `pymine` uses [`beautiful soup`](https://www.crummy.com/software/BeautifulSoup/)
+`pyBrokk` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter). `pyBrokk` uses [`beautiful soup`](https://www.crummy.com/software/BeautifulSoup/)

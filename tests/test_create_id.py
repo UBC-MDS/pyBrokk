@@ -1,4 +1,4 @@
-from pymine.create_id import create_id
+from pybrokk.create_id import create_id
 
 def test_create_id():
     """
