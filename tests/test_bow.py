@@ -1,4 +1,4 @@
-from pymine.bow import bow
+from pyBrokk.bow import bow
 import pandas as pd
 
 def test_bow():

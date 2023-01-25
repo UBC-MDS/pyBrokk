@@ -1,6 +1,6 @@
 import pandas as pd
-from pymine.create_id import create_id
-from pymine.text_from_url import text_from_url
+from pyBrokk.create_id import create_id
+from pyBrokk.text_from_url import text_from_url
 
 def duster(urls):
     """
@@ -18,7 +18,7 @@ def duster(urls):
         
     Examples
     ----------
-    >>> from pymine.duster import duster
+    >>> from pyBrokk.duster import duster
     >>> duster(['https://www.cnn.com/world', 'https://www.foxnews.com/world', 'https://www.cbc.ca/news/world'])
                                         url                                           raw_text
     id

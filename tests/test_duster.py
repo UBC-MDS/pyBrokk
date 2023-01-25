@@ -1,4 +1,4 @@
-from pymine.duster import duster
+from pyBrokk.duster import duster
 import pandas as pd
 
 def test_duster():

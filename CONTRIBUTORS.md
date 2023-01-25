@@ -1,6 +1,6 @@
 # Credits
 
-`pymine` is an open source project.  Contributions are welcome, and they are greatly appreciated! Every little bit helps, and credit will always be given.
+`pyBrokk` is an open source project.  Contributions are welcome, and they are greatly appreciated! Every little bit helps, and credit will always be given.
 
 ## Development Team
 
