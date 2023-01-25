@@ -1,4 +1,4 @@
-from pyBrokk.text_from_url import text_from_url
+from pybrokk.text_from_url import text_from_url
 
 def test_text_from_url():
     """
