@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyBrokk"
-version = "0.1.0"
+version = "0.0.0"
 description = "A package that takes a list of URLs and creates a dataframe ufor machine learning projects using  BOW"
 authors = ["Elena Genacheva, Mehdi Naji, Mike Guron, Daniel Merigo"]
 license = "MIT"
