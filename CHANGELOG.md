@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.8 (2023-01-28)
+### Fix
+* **example.ipynb:** Fixed import ([`0c3e6b9`](https://github.com/UBC-MDS/pyBrokk/commit/0c3e6b96b002176ebc44e5c7e94e03d1da5dd8e2))
+
+## v0.0.7 (2023-01-28)
+
+
+## v0.0.6 (2023-01-28)
+
+
 ## v0.0.5 (2023-01-28)
 
 
