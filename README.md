@@ -1,3 +1,5 @@
+[![Documentation Status](https://readthedocs.org/projects/pybrokk/badge/?version=latest)](https://pybrokk.readthedocs.io/en/latest/?badge=latest)
+
 # pyBrokk
 
 This package allows users to provide a list of URLs for webpages of interest and creates a dataframe with Bag of Words representation that can then later be fed into a machine learning model of their choice. Users also have the option to produce a dataframe with just the raw text of their target webpages to apply the text representation of their choice instead.
@@ -22,12 +24,44 @@ The pyBrokk package includes the following four functions:
 ## Installation
 
 ``` bash
-$ pip install pyBrokk
+$ pip install pybrokk
 ```
 
 ## Usage
 
--   TODO
+-   import pyBrokk import requests import pandas as pd from bs4 import BeautifulSoup import pandas as pd from sklearn.feature_extraction.text import CountVectorizer
+
+## Imports
+
+```{python}
+
+import pyBrokk 
+import requests 
+import pandas as pd 
+from bs4 import BeautifulSoup 
+import pandas as pd 
+from sklearn.feature_extraction.text import CountVectorizer
+
+urls = ['https://www.utoronto.ca/', 'https://www.ubc.ca/', 'https://www.mcgill.ca/', 'https://www.queensu.ca/']
+
+```
+
+## Example URLs
+
+```{python}
+urls = ['https://www.utoronto.ca/', 'https://www.ubc.ca/', 'https://www.mcgill.ca/', 'https://www.queensu.ca/']
+```
+
+## Create IDs ##
+
+```{python}
+
+url_ids = create_id(urls) url_ids
+
+dictionary = text_from_url(urls)
+
+list(dictionary.items())[0]
+```
 
 ## Contributing
 
