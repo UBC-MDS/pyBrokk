@@ -29,17 +29,13 @@ $ pip install pybrokk
 
 ## Usage
 
--   import pyBrokk import requests import pandas as pd from bs4 import BeautifulSoup import pandas as pd from sklearn.feature_extraction.text import CountVectorizer
-
 ## Imports
 
 ```{python}
-
 import pyBrokk 
 import requests 
 import pandas as pd 
 from bs4 import BeautifulSoup 
-import pandas as pd 
 from sklearn.feature_extraction.text import CountVectorizer
 
 urls = ['https://www.utoronto.ca/', 'https://www.ubc.ca/', 'https://www.mcgill.ca/', 'https://www.queensu.ca/']
@@ -55,7 +51,6 @@ urls = ['https://www.utoronto.ca/', 'https://www.ubc.ca/', 'https://www.mcgill.c
 ## Create IDs ##
 
 ```{python}
-
 url_ids = create_id(urls) url_ids
 
 dictionary = text_from_url(urls)
