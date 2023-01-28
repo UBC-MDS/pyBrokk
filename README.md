@@ -37,9 +37,6 @@ import requests
 import pandas as pd 
 from bs4 import BeautifulSoup 
 from sklearn.feature_extraction.text import CountVectorizer
-
-urls = ['https://www.utoronto.ca/', 'https://www.ubc.ca/', 'https://www.mcgill.ca/', 'https://www.queensu.ca/']
-
 ```
 
 ### create_id()
