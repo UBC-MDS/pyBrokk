@@ -51,5 +51,6 @@ def bow(df):
     words_matrix = words.fit_transform(df.iloc[:,-1])
     words_array = words_matrix.toarray()
     df_temp = pd.DataFrame(data=words_array, columns = words.get_feature_names_out())
+    df_temp = df_temp.set_index(df.index)
     df_bow = pd.concat([df ,df_temp], axis=1)
     return df_bow
