@@ -39,6 +39,15 @@ from bs4 import BeautifulSoup
 from sklearn.feature_extraction.text import CountVectorizer
 ```
 
+### Input Format
+
+```{python}
+urls = ['https://www.utoronto.ca/',
+         'https://www.ubc.ca/',
+         'https://www.mcgill.ca/',
+         'https://www.queensu.ca/']
+```
+
 ### create_id()
 
 ##### Creates unique IDs for a list of URLs
