@@ -29,10 +29,10 @@ $ pip install pybrokk
 
 ## Usage
 
-## Imports
+### Imports
 
 ```{python}
-import pyBrokk 
+import pybrokk 
 import requests 
 import pandas as pd 
 from bs4 import BeautifulSoup 
@@ -42,20 +42,36 @@ urls = ['https://www.utoronto.ca/', 'https://www.ubc.ca/', 'https://www.mcgill.c
 
 ```
 
-## Example URLs
+### create_id()
+
+##### Creates unique IDs for a list of URLs
 
 ```{python}
-urls = ['https://www.utoronto.ca/', 'https://www.ubc.ca/', 'https://www.mcgill.ca/', 'https://www.queensu.ca/']
+url_ids = create_id(urls)
 ```
 
-## Create IDs ##
+### text_from_url()
+
+##### Creates a dictionary with original URLs as keys and parsed using `BeautifulSoup` text as values
 
 ```{python}
-url_ids = create_id(urls) url_ids
-
 dictionary = text_from_url(urls)
+```
 
-list(dictionary.items())[0]
+### duster()
+
+##### Create a dataframe using the outputs of `create_id()` and `text_from_url()`
+
+```{python}
+df = duster(urls)
+```
+
+### bow()
+
+##### Create a dataframe of a bag of words appended to the input dataframe
+
+```{python}
+df_bow = bow(df)
 ```
 
 ## Contributing
